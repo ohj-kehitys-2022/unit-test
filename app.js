@@ -15,10 +15,7 @@ app.get('/calculate/:x/:y',function (request,response){
         response.json(result);
     }
     );
-let port=3000;
-if(process.env.port){
-    port=process.env.port;
-}
+var port = normalizePort(process.env.PORT || '3000');
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
