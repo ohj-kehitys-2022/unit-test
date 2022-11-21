@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const calculator = require('./calculator')
-const port = 3000;
+//const port = 3000;
 
 
 app.get('/',function (request,response){
@@ -15,7 +15,10 @@ app.get('/calculate/:x/:y',function (request,response){
         response.json(result);
     }
     );
-
+let port=3000;
+if(process.env.port){
+    port=process.env.port;
+}
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
